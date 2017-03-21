@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: row;
+}
+
+.HeroPicker {
+    background: #000;
+    overflow: hidden;
+}
+
+.HeroPicker img {
+    width: 100px;
+    float: left;
+}

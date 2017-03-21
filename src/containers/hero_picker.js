@@ -37,7 +37,9 @@ class HeroPicker extends Component {
         var heroes = this.state.heroes.map((hero) => {
             var name = hero.name;
             return (
-                <img key={name} src={hero.image} title={name} onClick={()=>this.onImageClick(name)}/>
+                <div className="ImageContainer">
+                    <img key={name} src={hero.image} title={name} onClick={() => this.onImageClick(name)} />
+                </div>
             );
         });
 
@@ -52,7 +54,7 @@ class HeroPicker extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({showCounter}, dispatch);
+    return bindActionCreators({ showCounter }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(HeroPicker);

@@ -34,21 +34,23 @@ class HeroPicker extends Component {
     }
 
     render() {
+        var key = this.props.hightlight_hero;
+
         var heroes = this.state.heroes.map((hero) => {
             var name = hero.name;
+            var hightlight_style = "";
+            if (key && key != "") {
+                name.indexOf(key) >= 0 ? hightlight_style = "Shine" : hightlight_style = "Faint";
+            }
             return (
-                <div className="ImageContainer">
-                    <img key={name} src={hero.image} title={name} onClick={() => this.onImageClick(name)} />
+                <div key={name} className={"ImageContainer " + hightlight_style}>
+                    <img key={name} src={hero.image} title={name} onClick={() => this.onImageClick(name)} className="HeroIcon" />
                 </div>
             );
         });
 
-        var container_style = {
-            width: "50%"
-        }
-
         return (
-            <div className="HeroPicker" style={container_style}>{heroes}</div>
+            <div className="HeroPicker">{heroes}</div>
         );
     }
 }
@@ -57,4 +59,8 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ showCounter }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(HeroPicker);
+function mapStateToProps({hightlight_hero}) {
+    return { hightlight_hero };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeroPicker);

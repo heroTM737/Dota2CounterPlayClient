@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-var base_img_src = "http://128.88.242.23:7000/assets/img/heroes";
+var base_img_src = "http://127.0.0.1:7000/assets/img/heroes";
 
 class CounterView extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class CounterView extends Component {
 
     fetchCounter(name) {
         var self = this;
-        axios.get("http://128.88.242.23:7000/api/counter?name=" + name)
+        axios.get("http://127.0.0.1:7000/api/counter?name=" + name)
             .then(function (response) {
                 self.setState({
                     target: response.data.target,

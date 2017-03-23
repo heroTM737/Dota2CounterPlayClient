@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import CounterReducer from './reducer_counter';
+import PickHeroReducer from './reducer_pick_hero';
 import HightlightHeroReducer from './reducer_hightlight_hero';
+import LoadHeroReducer from './reducer_load_hero';
 
 const rootReducer = combineReducers({
-  counter: CounterReducer,
+  heroes: LoadHeroReducer,
+  pick_hero: PickHeroReducer,
   hightlight_hero: HightlightHeroReducer
 });
 

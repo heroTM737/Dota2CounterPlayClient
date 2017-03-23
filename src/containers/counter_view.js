@@ -31,7 +31,7 @@ class CounterView extends Component {
     }
 
     render() {
-        var name = this.props.counter;
+        var name = this.props.pick_hero.pick;
 
         if (name && name != "") {
             var img_src;
@@ -51,7 +51,7 @@ class CounterView extends Component {
 
             img_src = `${base_img_src}/${name}.jpg`;
             return (
-                <div className="CounterView" style={{ width: "50%" }}>
+                <div className="CounterView">
                     <div className="CounterViewTarget">
                         <img src={img_src} className="HeroIcon" />
                         {this.state.target.localized_name}
@@ -65,8 +65,8 @@ class CounterView extends Component {
     }
 }
 
-function mapStateToProps({counter}) {
-    return { counter };
+function mapStateToProps({pick_hero}) {
+    return { pick_hero };
 }
 
 export default connect(mapStateToProps)(CounterView);

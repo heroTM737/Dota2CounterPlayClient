@@ -3,6 +3,10 @@ body {
     background: #000;
 }
 
+body div {
+    color: #fff;
+}
+
 form {
     padding: 5px;
 }
@@ -57,10 +61,10 @@ form button{
 .CounterView {
     color: white;
     padding: 5px;
+    overflow: hidden;
 }
 
 .CounterViewTarget {
-    border-bottom: 1px solid #fff;
     padding-bottom: 15px;
     margin-bottom: 15px;
     display: flex; 
@@ -81,3 +85,33 @@ form button{
 .Faint {
     opacity: 0.1;
 }
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.MatchPickView {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 15px;
+}
+.MatchPickView .row div {
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.MatchPickView .MatchPickViewSide {
+    min-height: 50px;
+    margin: 3px 0;
+    opacity: 0.4;
+    border: 1px solid rgba(0,0,0,0);
+    border-right: none;
+}
+
+.MatchPickView .MatchPickViewSide:hover {
+    border-color: #fff;
+}
+
+.MatchPickView .row.active {
+    opacity: 1;
+} 

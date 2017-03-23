@@ -23,8 +23,7 @@ class SearchBar extends Component {
 
     onFormSubmit(event) {
         event.preventDefault();
-
-        this.props.hightlightHero(this.state.term);
+        this.props.hightlightHero('');
         this.setState({
             term: ''
         });
@@ -40,7 +39,7 @@ class SearchBar extends Component {
                     onChange={this.onInputChange}
                     />
                 <span className="">
-                    <button type="submit" className="btn btn-secondary">Search</button>
+                    <button type="submit" className="">Clear</button>
                 </span>
             </form>
         )

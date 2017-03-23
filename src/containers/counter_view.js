@@ -9,7 +9,7 @@ class CounterView extends Component {
         super(props);
 
         this.state = {
-            name: "",
+            target: {},
             counter: []
         }
 
@@ -21,8 +21,8 @@ class CounterView extends Component {
         axios.get("http://128.88.242.23:7000/api/counter?name=" + name)
             .then(function (response) {
                 self.setState({
-                    name: name,
-                    counter: response.data
+                    target: response.data.target,
+                    counter: response.data.counter_list
                 });
             })
             .catch(function (error) {
@@ -36,16 +36,16 @@ class CounterView extends Component {
         if (name && name != "") {
             var img_src;
 
-            var list = this.state.counter.map((name) => {
-                img_src = `${base_img_src}/${name}.jpg`;
+            var list = this.state.counter.map((hero) => {
+                img_src = `${base_img_src}/${hero.name}.jpg`;
                 return (
-                    <div key={name} className="ImageContainer" >
+                    <div key={hero.name} className="ImageContainer" >
                         <img src={img_src} className="HeroIcon" />
                     </div>
                 );
             });
 
-            if (name != this.state.name) {
+            if (name != this.state.target.name) {
                 this.fetchCounter(name);
             }
 
@@ -54,7 +54,7 @@ class CounterView extends Component {
                 <div className="CounterView" style={{ width: "50%" }}>
                     <div className="CounterViewTarget">
                         <img src={img_src} className="HeroIcon" />
-                        {name}
+                        {this.state.target.localized_name}
                     </div>
                     <div>{list}</div>
                 </div>

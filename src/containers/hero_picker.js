@@ -35,16 +35,21 @@ class HeroPicker extends Component {
 
     render() {
         var key = this.props.hightlight_hero;
+        key = key.trim().toLowerCase();
 
         var heroes = this.state.heroes.map((hero) => {
             var name = hero.name;
+            var localized_name = hero.localized_name;
+            var localized_name_lower_case = localized_name.toLowerCase();
+
             var hightlight_style = "";
             if (key && key != "") {
-                name.indexOf(key) >= 0 ? hightlight_style = "Shine" : hightlight_style = "Faint";
+                (name.indexOf(key) >= 0 || localized_name_lower_case.indexOf(key) >= 0) ? hightlight_style = "Shine" : hightlight_style = "Faint";
             }
+
             return (
                 <div key={name} className={"ImageContainer " + hightlight_style}>
-                    <img key={name} src={hero.image} title={name} onClick={() => this.onImageClick(name)} className="HeroIcon" />
+                    <img key={name} src={hero.image} title={localized_name} onClick={() => this.onImageClick(name)} className="HeroIcon" />
                 </div>
             );
         });

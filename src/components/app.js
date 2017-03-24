@@ -9,12 +9,12 @@ export default class App extends Component {
     return (
       <div className="App">
         <div style={{ width: "50%" }}>
-          <SearchBar />
-          <HeroPicker />
-        </div>
-        <div style={{ width: "50%" }}>
           <MatchPickView />
           <CounterView />
+        </div>
+        <div style={{ width: "50%" }}>
+          <SearchBar />
+          <HeroPicker />
         </div>
       </div>
     );

@@ -1,48 +1,45 @@
-import { PICK_HERO, CHANGE_TURN } from '../actions/index';
 import _ from 'lodash';
 
+import { PICK_HERO, CHANGE_TURN } from '../actions/index';
+import { sides } from '../data/data.js';
+
 var default_state = {
-    isDireTurn: true,
-    pick: "",
-    dire: [],
-    radiant: []
+    turn: sides[0],
+    pick: ""
 }
 
-export default function (state = default_state, action) {
-    var dire = state.dire;
-    var radiant = state.radiant;
+sides.map((side) => default_state[side] = []);
 
+function createPickHeroState(state, action) {
     var pick_hero = action.payload;
-    var hero_exist = false;
-    if (_.find(dire, (o) => o == pick_hero) || _.find(radiant, (o) => o == pick_hero)) {
-        hero_exist = true;
-    }
+    var turn = state.turn;
 
-    if (!hero_exist) {
-        if (state.isDireTurn) {
-            if (state.dire.length < 5)
-                dire = [...state.dire, action.payload];
-        } else if (state.radiant.length < 5) {
-            radiant = [...state.radiant, action.payload];
+    var hero_exist = false;
+    for (var i = 0; i < sides.length; i++) {
+        if (_.find(state[sides[i]], (o) => o == pick_hero)) {
+            hero_exist = true;
+            break;
         }
     }
 
+    var new_state = _.clone(state);
+    new_state.pick = pick_hero;
 
+    if (!hero_exist && state[turn].length < 5) {
+        new_state[turn] = [...state[turn], pick_hero];
+    }
+
+    return new_state;
+}
+
+export default function (state = default_state, action) {
     switch (action.type) {
         case PICK_HERO:
-            return {
-                isDireTurn: state.isDireTurn,
-                pick: action.payload,
-                dire: dire,
-                radiant: radiant
-            };
+            return createPickHeroState(state, action);
         case CHANGE_TURN:
-            return {
-                isDireTurn: action.payload,
-                pick: state.pick,
-                dire: state.dire,
-                radiant: state.radiant
-            }
+            var new_state = _.clone(state);
+            new_state.turn = action.payload;
+            return new_state;
     }
 
     return state;

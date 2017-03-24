@@ -30,9 +30,9 @@ export function hightlightHero(key) {
     }
 }
 
-export function changeTurn(isDireTurn) {
+export function changeTurn(turn) {
     return {
         type: CHANGE_TURN,
-        payload: isDireTurn
+        payload: turn
     }
 }

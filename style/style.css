@@ -1,10 +1,10 @@
 body {
-    margin: 0;
     background: #000;
 }
 
 body div {
     color: #fff;
+    font-family: cursive;
 }
 
 form {
@@ -95,7 +95,7 @@ form button{
     padding-bottom: 15px;
 }
 .MatchPickView .row div {
-    min-width: 50px;
+    min-width: 70px;
     display: flex;
     align-items: center;
 }
@@ -103,15 +103,10 @@ form button{
 .MatchPickView .MatchPickViewSide {
     min-height: 50px;
     margin: 3px 0;
-    opacity: 0.4;
     border: 1px solid rgba(0,0,0,0);
-    border-right: none;
 }
 
+.MatchPickView .MatchPickViewSide.active,
 .MatchPickView .MatchPickViewSide:hover {
     border-color: #fff;
 }
-
-.MatchPickView .row.active {
-    opacity: 1;
-} 

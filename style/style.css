@@ -90,10 +90,11 @@ form button{
     display: flex;
     flex-direction: row;
 }
+
 .MatchPickView {
-    border-bottom: 1px solid #fff;
     padding-bottom: 15px;
 }
+
 .MatchPickView .row div {
     min-width: 70px;
     display: flex;

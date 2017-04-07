@@ -10,17 +10,16 @@ export default class App extends Component {
     return (
       <div className="App">
         <div style={{ width: "50%" }}>
-          <MatchPickView />
-          <CounterView />
+          <Tabs>
+            <Tab title="Match View" component={<MatchPickView />}></Tab>
+            <Tab title="Hero View" component={<CounterView />}></Tab>
+          </Tabs>
         </div>
         <div style={{ width: "50%" }}>
           <SearchBar />
           <HeroPicker />
         </div>
-        <Tabs>
-          <Tab title="Match View" component={<div>123</div>}></Tab>
-          <Tab title="Hero View" component={<div>123</div>}></Tab>
-        </Tabs>
+
       </div>
     );
   }

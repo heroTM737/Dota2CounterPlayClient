@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 
 var base_url = "http://127.0.0.1:7000";
 var base_img_src = base_url + "/assets/img/heroes";
-var API_COUNTER = base_url + "/api/counter";
-var API_ALIES = base_url + "/api/alies";
+var API_HERO = base_url + "/api/aliesandcounter";
 
 class CounterView extends Component {
     constructor(props) {
@@ -22,21 +21,11 @@ class CounterView extends Component {
 
     fetchCounter(name) {
         var self = this;
-        axios.get(API_COUNTER + "?name=" + name)
+        axios.get(API_HERO + "?name=" + name)
             .then(function (response) {
                 self.setState({
                     target: name,
-                    counter: response.data.counter_list
-                });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-        axios.get(API_ALIES + "?name=" + name)
-            .then(function (response) {
-                self.setState({
-                    target: name,
+                    counter: response.data.counter_list,
                     alies: response.data.alies_list
                 });
             })
@@ -81,13 +70,13 @@ class CounterView extends Component {
                         <img src={img_src} className="HeroIcon" />
                         {hero.localized_name}
                     </div>
-                    <div className="HeroPicker">{counter_list}</div>
                     <div className="HeroPicker">{alies_list}</div>
+                    <div className="HeroPicker">{counter_list}</div>
                 </div>
             );
         }
 
-        return (<div className="CounterView" ></div>);
+        return (<div className="CounterView" ><img src={`${base_img_src}/anonymous.jpg`} className="HeroIcon" /></div>);
     }
 }
 

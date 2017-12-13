@@ -5,7 +5,8 @@ export const HIGHTLIGHT_HERO = 'HIGHTLIGHT_HERO';
 export const CHANGE_TURN = 'CHANGE_TURN';
 export const LOAD_HERO = 'LOAD_HERO';
 
-const API_HEROES = "http://127.0.0.1:7000/api/heroes";
+// const API_HEROES = "http://127.0.0.1:7000/api/heroes";
+const API_HEROES = "http://128.199.190.81:7000/api/heroes";
 
 export function loadHero() {
     const request = axios.get(API_HEROES);

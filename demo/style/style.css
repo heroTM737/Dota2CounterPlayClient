@@ -1,0 +1,113 @@
+body {
+    background: #000;
+}
+
+body div {
+    color: #fff;
+    font-family: cursive;
+}
+
+form {
+    padding: 5px;
+}
+
+form input, form button {
+    border: none;
+    outline: none;
+    font-family: cursive;
+}
+
+form input {
+    padding: 5px;
+    height: 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+form button{
+    height: 35px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.App {
+    display: flex;
+    flex-direction: row;
+}
+
+.HeroPicker {
+    overflow: hidden;
+}
+
+.ImageContainer{
+    float: left;
+    padding: 5px;
+    height: 40px;
+}
+
+.HeroIcon{
+    width: 70px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.HeroPicker .ImageContainer img:hover {
+    -moz-box-shadow: inset 0 0 10px #fff;
+    -webkit-box-shadow: inset 0 0 10px #fff;
+    box-shadow: 0 0 5px 5px #fff;
+}
+
+.CounterView {
+    color: white;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.CounterViewTarget {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    display: flex; 
+}
+
+.CounterViewTarget img {
+    margin: 5px;
+}
+
+.CounterViewTarget span {
+    padding: 5px;
+}
+
+.Shine {
+    background: #000;
+}
+
+.Faint {
+    opacity: 0.1;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.MatchPickView {
+    padding-bottom: 15px;
+}
+
+.MatchPickView .row div {
+    min-width: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.MatchPickView .MatchPickViewSide {
+    min-height: 50px;
+    margin: 3px 0;
+    border: 1px solid rgba(0,0,0,0);
+}
+
+.MatchPickView .MatchPickViewSide.active,
+.MatchPickView .MatchPickViewSide:hover {
+    border-color: #fff;
+}

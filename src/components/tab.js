@@ -24,6 +24,10 @@ export class Tabs extends Component {
     }
 
     changeTab(title) {
+        if (this.onTabChange) {
+            this.onTabChange(this.state.title, title);
+        }
+
         this.setState({
             activeTab: title
         });

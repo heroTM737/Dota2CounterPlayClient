@@ -86,6 +86,24 @@ form button{
     opacity: 0.1;
 }
 
+.Disabled {
+    position: relative;
+    opacity: 0.1;
+}
+
+.Disabled:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "x"; /* use the hex value here... */
+    font-size: 40px; 
+    color: #FFF;
+    line-height: 100%;
+    text-align: center;
+}
+
 .row {
     display: flex;
     flex-direction: row;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { base_url } from '../config/service';
 
-var base_url = "http://127.0.0.1:7000";
 var base_img_src = base_url + "/assets/img/heroes";
 var API_HERO = base_url + "/api/aliesandcounter";
 
@@ -80,7 +80,7 @@ class CounterView extends Component {
     }
 }
 
-function mapStateToProps({heroes, pick_hero}) {
+function mapStateToProps({ heroes, pick_hero }) {
     return { heroes, pick_hero };
 }
 

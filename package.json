@@ -1,7 +1,7 @@
 {
-  "name": "redux-simple-starter",
+  "name": "Dota2CounterPlay",
   "version": "1.0.0",
-  "description": "Simple starter package for Redux with React and Babel support",
+  "description": "Dota 2 Counter Play Web Client",
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
@@ -9,21 +9,21 @@
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
-  "author": "",
+  "author": "TM",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.2.1",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-react": "^6.1.18",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "^6.24.1",
     "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
     "axios": "^0.17.1",

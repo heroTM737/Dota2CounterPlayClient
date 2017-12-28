@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 
-import { changeTurn } from '../actions/index';
+import { changeTurn, unpickHero } from '../actions/index';
 
 import { sides } from '../data/data';
 
@@ -17,10 +17,11 @@ class MatchPickView extends Component {
     }
 
     renderHero(name) {
-        var hero = _.find(this.props.heroes, (o) => o.name == name)
+        var hero = _.find(this.props.heroes, (o) => o.name == name);
+        var self = this;
         return (
             <div key={name} className="ImageContainer">
-                <img src={hero.image} className="HeroIcon" />
+                <img src={hero.image} className="HeroIcon" onClick={() => self.props.unpickHero(name)} />
             </div>
         );
     }
@@ -59,10 +60,10 @@ class MatchPickView extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ changeTurn }, dispatch);
+    return bindActionCreators({ changeTurn, unpickHero }, dispatch);
 }
 
-function mapStateToProps({heroes, pick_hero}) {
+function mapStateToProps({ heroes, pick_hero }) {
     return { heroes, pick_hero };
 }
 

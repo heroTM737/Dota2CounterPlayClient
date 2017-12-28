@@ -1,9 +1,9 @@
 var webpack = require('webpack');
+var path = require("path");
 
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: './src/index.js',
+  
   output: {
     path: __dirname,
     publicPath: '/',
@@ -20,14 +20,19 @@ module.exports = {
   //     }
   //   })
   // ],
+  // context: path.join(__dirname, "src"),
   module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
+    rules: [
+      {
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          query: {
+            presets: ['react', 'es2015', 'stage-1']
+          }
+        }
       }
-    }]
+    ]
   },
   resolve: {
     extensions: ['txt', '.js', '.jsx']

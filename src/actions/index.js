@@ -2,6 +2,7 @@ import axios from 'axios';
 import { base_url } from '../config/service';
 
 export const PICK_HERO = 'PICK_HERO';
+export const UNPICK_HERO = 'UNPICK_HERO';
 export const HIGHTLIGHT_HERO = 'HIGHTLIGHT_HERO';
 export const CHANGE_TURN = 'CHANGE_TURN';
 export const LOAD_HERO = 'LOAD_HERO';
@@ -20,6 +21,13 @@ export function loadHero() {
 export function pickHero(name) {
     return {
         type: PICK_HERO,
+        payload: name
+    }
+}
+
+export function unpickHero(name) {
+    return {
+        type: UNPICK_HERO,
         payload: name
     }
 }

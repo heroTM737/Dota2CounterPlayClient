@@ -82,12 +82,15 @@ form button{
     background: #000;
 }
 
-.Faint {
+.Faint * {
     opacity: 0.1;
 }
 
 .Disabled {
     position: relative;
+}
+
+.Disabled * {
     opacity: 0.1;
 }
 

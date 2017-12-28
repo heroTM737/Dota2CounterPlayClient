@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { PICK_HERO, CHANGE_TURN } from '../actions/index';
+import { PICK_HERO, UNPICK_HERO, CHANGE_TURN } from '../actions/index';
 import { sides } from '../data/data.js';
 
 var default_state = {
@@ -32,10 +32,22 @@ function createPickHeroState(state, action) {
     return new_state;
 }
 
+function createUnpickHeroState(state, action) {
+    var unpick_hero = action.payload;
+    var turn = state.turn;
+
+    var new_state = _.clone(state);
+    new_state[turn] = new_state[turn].filter(item => item != unpick_hero);
+
+    return new_state;
+}
+
 export default function (state = default_state, action) {
     switch (action.type) {
         case PICK_HERO:
             return createPickHeroState(state, action);
+        case UNPICK_HERO:
+            return createUnpickHeroState(state, action);
         case CHANGE_TURN:
             var new_state = _.clone(state);
             new_state.turn = action.payload;

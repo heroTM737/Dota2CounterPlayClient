@@ -20,7 +20,6 @@ module.exports = {
   //     }
   //   })
   // ],
-  // context: path.join(__dirname, "src"),
   module: {
     rules: [
       {

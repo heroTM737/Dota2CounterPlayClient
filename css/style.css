@@ -11,7 +11,8 @@ form {
     padding: 5px;
 }
 
-form input, form button {
+form input,
+form button {
     border: none;
     outline: none;
     font-family: cursive;
@@ -24,7 +25,7 @@ form input {
     border-bottom-left-radius: 5px;
 }
 
-form button{
+form button {
     height: 35px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -39,13 +40,13 @@ form button{
     overflow: hidden;
 }
 
-.ImageContainer{
+.ImageContainer {
     float: left;
     padding: 5px;
     height: 40px;
 }
 
-.HeroIcon{
+.HeroIcon {
     width: 70px;
     height: 40px;
     border-radius: 5px;
@@ -67,7 +68,7 @@ form button{
 .CounterViewTarget {
     padding-bottom: 15px;
     margin-bottom: 15px;
-    display: flex; 
+    display: flex;
 }
 
 .CounterViewTarget img {
@@ -100,35 +101,65 @@ form button{
     bottom: 0;
     left: 0;
     right: 0;
-    content: "x"; /* use the hex value here... */
-    font-size: 40px; 
+    content: "x";
+    /* use the hex value here... */
+    font-size: 40px;
     color: #FFF;
     line-height: 100%;
     text-align: center;
 }
 
-.row {
+.MatchPickView {
+    padding-bottom: 15px;
+    min-height: 500px;
+    position: relative;
+}
+
+.MatchPickView .MatchPickViewPick {
+    display: flex;
+    flex-direction: row;
+    background: url(../image/minimap.png) no-repeat center center;
+    min-height: 340px;
+}
+
+.MatchPickView .MatchPickViewPickRadiant {
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.MatchPickView .MatchPickViewPickDire {
+    width: 50%;
     display: flex;
     flex-direction: row;
 }
 
-.MatchPickView {
-    padding-bottom: 15px;
-}
-
-.MatchPickView .row div {
-    min-width: 70px;
-    display: flex;
-    align-items: center;
-}
-
 .MatchPickView .MatchPickViewSide {
     min-height: 50px;
+    min-width: 100px;
     margin: 3px 0;
-    border: 1px solid rgba(0,0,0,0);
+    border: 1px solid rgba(0, 0, 0, 0);
+    display: flex;
 }
 
 .MatchPickView .MatchPickViewSide.active,
 .MatchPickView .MatchPickViewSide:hover {
     border-color: #fff;
+}
+
+.MatchPickView .MatchPickViewSideRadiant {
+    flex-direction: column;
+    align-items: center;
+    margin-right: 160px;
+}
+
+.MatchPickView .MatchPickViewSideDire {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 160px;
+}
+
+.MatchPickView .MatchPickViewSideBan {
+    flex-direction: row;
+    justify-content: center;
 }

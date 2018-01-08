@@ -1,3 +1,5 @@
-var sides = ["dire", "radiant", "ban"];
+var sides = ["radiant", "dire", "ban"];
 
-export { sides }
+export {
+    sides
+}

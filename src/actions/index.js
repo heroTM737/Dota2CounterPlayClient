@@ -7,7 +7,7 @@ export const HIGHTLIGHT_HERO = 'HIGHTLIGHT_HERO';
 export const CHANGE_TURN = 'CHANGE_TURN';
 export const LOAD_HERO = 'LOAD_HERO';
 
-const API_HEROES = base_url + "/api/heroes";
+const API_HEROES = base_url + "/service/dota2/heroes";
 
 export function loadHero() {
     const request = axios.get(API_HEROES);
